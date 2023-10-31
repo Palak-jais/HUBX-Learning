@@ -1,0 +1,31 @@
+.btn{
+    background-color: rgb(205, 52, 93);
+    color:whitesmoke;
+    padding: 10px;
+    border: none;
+    border-left:2px solid pink;
+    border-right:2px solid pink;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 20px;
+    font-family: monospace;
+    font-weight: 600;
+}
+.header{
+    text-align: center;
+    font-family: monospace;
+    padding: 1%;
+    font-size: 30px;
+    font-weight: 600;
+    color: rgb(28, 84, 179);
+}
+.stuffs{
+    padding: 1%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.btn:hover{
+    opacity: 0.7;
+}
