@@ -1,17 +1,20 @@
 import React from "react";
 import styles from './ui.module.css';
 import { useFormik } from "formik";
+import { signUpSchema } from "./schema/signUpSchema";
 
 export default function Form(){
     const initialValues={
         name:'',
         email:'',
         password:'',
+        confirmpassword:'',
         code:'',
     }
-
+    
     const formik=useFormik({
         initialValues:initialValues,
+        validationSchema:signUpSchema,
         onSubmit:(values)=>{
             console.log(values);
         }
@@ -21,11 +24,9 @@ export default function Form(){
     //formik return some methoda and functioms.
     //handleChange(),handleBlur etc ...
     //errors
-
-    
     const generate=(e)=> {
         e.preventDefault();
-        const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // Define the characters you want in the code
+        const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         let randomCode = '';
       
         for (let i = 0; i <10; i++) {
@@ -37,6 +38,7 @@ export default function Form(){
         formik.setFieldValue('code', randomCode.toString());
         console.log(formik.values.code)
       }
+
     return <div>
         <h1>Forms</h1>
         <input 
@@ -53,7 +55,7 @@ export default function Form(){
         type="email"
         name="email"
         autoComplete="off"
-        placeholder="Input your name"
+        placeholder="Input your email"
         value={formik.values.email}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
@@ -67,6 +69,15 @@ export default function Form(){
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         />
+         <input 
+        type="password"
+        name="confirmpassword"
+        autoComplete="off"
+        placeholder="Input your confirm password"
+        value={formik.values.confirmpassword}
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        />
         <input 
         type="text"
         name="code"
@@ -75,12 +86,12 @@ export default function Form(){
         value={formik.values.code}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
+        readOnly //for only read-only fields
         />
         <button 
         onClick={generate}
         className={styles.btn}
         >Generate</button>
-
         <button 
         type="submit"
         onClick={formik.handleSubmit}
