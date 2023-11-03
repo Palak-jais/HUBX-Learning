@@ -2,7 +2,7 @@
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import Form from './components/Form';
 import Home from './components/home';
-import DynamicFieldsForm from './components/dynamics';
+import MyForm from './components/dynamics';
 
 function App() {
   return (
@@ -11,7 +11,8 @@ function App() {
       <Routes>
       <Route element={<Home/>} path='/'/>
       <Route element={<Form/>} path='/form'/>
-      <Route element={<DynamicFieldsForm/>} path='/dynamic'/>
+      <Route element={<MyForm/>} path='/dynamic'/>
+     
       </Routes>
     </BrowserRouter>
      
