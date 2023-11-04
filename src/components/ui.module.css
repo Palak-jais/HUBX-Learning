@@ -29,3 +29,21 @@
 .btn:hover{
     opacity: 0.7;
 }
+.forms{
+    padding: 1%;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    justify-content: center;
+
+}
+.input{
+    margin: 10px;
+    padding: 5px;
+    color: black;
+    font-weight: 600;
+}
+.invalid{
+    color: brown;
+    font-weight: 600;
+}

@@ -50,13 +50,15 @@ const MyForm = () => {
     ),
   });
 
-  const handleSubmit = (values, { setSubmitting }) => {
+  const handleSubmit = (values, { setErrors,resetForm,setSubmitting }) => {
     // Your form submission logic goes here
     console.log('Form submitted with values:', values);
     console.log(values.data)
     // You can make an API request, update state, etc.
     // Don't forget to call setSubmitting(false) when you're done.
     toastr.success("Sucess");
+    resetForm();
+    setErrors({});
     setSubmitting(false);
   };
 
@@ -251,6 +253,7 @@ const MyForm = () => {
                                           "form-control" 
                                         placeholder="Enter City"
                                       />
+                                      
                                       <ErrorMessage
                                         name={`data.${index}.city`}
                                         component="div"
@@ -329,7 +332,6 @@ const MyForm = () => {
               </Row>
             )}
           />
-
           </Row>
           <ModalFooter>
                     <div className="d-flex w-100 justify-content-between">
@@ -343,9 +345,7 @@ const MyForm = () => {
                         Submit
                       </Button>
                     </div>
-                  </ModalFooter>
-          
-
+                  </ModalFooter>        
         </Form>
       )}
     </Formik>
