@@ -28,10 +28,11 @@
     color: rgb(28, 84, 179);
 }
 .stuffs{
-    padding: 1%;
+    padding: 2%;
     align-items: center;
     display: flex;
     justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 .btn:hover{
