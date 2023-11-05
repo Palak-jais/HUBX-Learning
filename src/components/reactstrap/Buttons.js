@@ -1,9 +1,11 @@
 import React from "react";
 import { Button } from "reactstrap";
+import styles from '../ui.module.css'
 export default function Buttons(){
     return <>
-    <div>
-<h2>Buttons using Reactstrap</h2>
+    <h2 className={styles.header}>Buttons using Reactstrap</h2>
+    <div className={styles.stuffs}>
+
   <Button color="primary">
     primary
   </Button>
