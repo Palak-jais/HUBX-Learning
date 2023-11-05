@@ -4,6 +4,7 @@ import {
   //ModalBody,
   ModalFooter,
   //ModalHeader,
+  Form,
   Row,
   Col,
   FormFeedback,
@@ -13,14 +14,14 @@ import {
 import {
   //useFormik,
   Formik,
-  Form,
   FieldArray,
   Field,
   ErrorMessage,
 } from "formik";
 
 import * as Yup from "yup";
-import toastr from "toastr";
+import toastr, { error } from "toastr";
+import styles from './ui.module.css';
 const MyForm = () => {
   const initialValues = {
     first_name: "",
@@ -67,6 +68,7 @@ const MyForm = () => {
       initialValues={initialValues}
       validationSchema={validateSchema}
       onSubmit={handleSubmit}
+    
     >
       {({       errors,
                 values,
@@ -78,9 +80,9 @@ const MyForm = () => {
                 resetForm,
                 setErrors,
       }) => (
-        <Form>
-        <Row>
-                        <Col xs={12} md={6}>
+        <Form className={styles.basic}>
+        <Row >
+                        <Col xs={12} md={12}>
                           <div className="mb-3">
                             <Label className="form-label">First Name</Label>
                             <Input
@@ -104,7 +106,7 @@ const MyForm = () => {
                             ) : null}
                           </div>
                         </Col>
-                        <Col xs={12} md={6}>
+                        <Col xs={12} md={12}>
                           <div className="mb-3">
                             <Label className="form-label">Last Name</Label>
                             <Input
@@ -128,7 +130,7 @@ const MyForm = () => {
                             ) : null}
                           </div>
                         </Col>
-                        <Col xs={12} md={6}>
+                        <Col xs={12} md={12}>
                           <div className="mb-3">
                             <Label className="form-label">Email</Label>
                             <Input
@@ -152,7 +154,7 @@ const MyForm = () => {
                             ) : null}
                           </div>
                         </Col>
-                        <Col xs={12} md={6}>
+                        <Col xs={12} md={12}>
                           <div className="mb-3">
                             <Label className="form-label">Phone</Label>
                             <Input
@@ -176,7 +178,7 @@ const MyForm = () => {
                             </FormFeedback>
                           ) : null}
                         </Col>
-                        <Col xs={12} md={6}>
+                        <Col xs={12} md={12}>
                           <div className="mb-3">
                             <Label className="form-label">State</Label>
                             <Input
@@ -253,6 +255,9 @@ const MyForm = () => {
                                           "form-control" 
                                         placeholder="Enter City"
                                       />
+                                      {
+                                        (errors.data && touched.data && errors.data[index].city && touched.data[index].city)?<p>{errors.data[index].city}</p>:""
+                                      }
                                       
                                       <ErrorMessage
                                         name={`data.${index}.city`}
@@ -312,7 +317,7 @@ const MyForm = () => {
                     <Col xs={3} md={1}>
                     <button
                       type="button"
-                      onClick={() => arrayHelpers.remove(index)}
+                      onClick={() =>{ arrayHelpers.remove(index); console.log(error,touched)}}
                     >
                       -
                     </button>
@@ -320,13 +325,14 @@ const MyForm = () => {
                   </Row>
                 ))}
                 <Row>
+                <Col  xs={6} md={6}></Col>
                 <Col  xs={12} md={3}>
-                <button
+                <Button
                   type="button"
-                  onClick={() => arrayHelpers.push({ city: "", pincode: "", kilos: 0, costs: 0 })}
+                  onClick={() => arrayHelpers.push({ city: "", pincode: "", kilos:undefined, costs:undefined})}
                 >
-                  +
-                </button>
+                  Add Field
+                </Button>
                 </Col>
                 </Row>
               </Row>

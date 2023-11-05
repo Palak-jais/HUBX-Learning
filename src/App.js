@@ -4,6 +4,7 @@ import Form from './components/Form';
 import Home from './components/home';
 import MyForm from './components/dynamics';
 import MaterialUI from './components/Mui';
+import Main from './components/reactstrap/Main';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route element={<Form/>} path='/form'/>
       <Route element={<MyForm/>} path='/dynamic'/>
       <Route element={<MaterialUI/>} path='/mui'/>
+      <Route element={<Main/>} path='/reactstrap'/>
      
       </Routes>
     </BrowserRouter>

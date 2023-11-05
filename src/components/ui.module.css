@@ -1,7 +1,9 @@
 .btn{
+    
     background-color: rgb(205, 52, 93);
     color:whitesmoke;
     padding: 10px;
+    margin: 10px;
     border: none;
     border-left:2px solid pink;
     border-right:2px solid pink;
@@ -10,6 +12,12 @@
     border-radius: 20px;
     font-family: monospace;
     font-weight: 600;
+}
+.basic{
+    padding: 3%;
+    margin: auto;
+    justify-content: center;
+    width: 600px;
 }
 .header{
     text-align: center;
@@ -35,6 +43,7 @@
     text-align: center;
     margin: auto;
     justify-content: center;
+    width: 600px;
 
 }
 .input{
